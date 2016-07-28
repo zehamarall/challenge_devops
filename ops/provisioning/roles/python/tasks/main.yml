@@ -1,0 +1,4 @@
+---
+pre_tasks:
+  - name: Install Python 2 for ansible
+    raw: sudo apt-get -y install python

@@ -1,0 +1,13 @@
+- name: download LTS NodeJs
+  get_url: url=https://nodejs.org/dist/v4.4.7/node-v4.4.7-linux-x64.tar.xz dest=/tmp
+
+- name: Extract archive
+  unarchive: src=/tmp/node-v4.4.7-linux-x64.tar.xz
+             dest=/usr/local/
+             copy=no
+
+- name: Create link Node bin
+  file: src=/usr/local/node-v4.4.7-linux-x64/bin/node dest=/usr/local/bin/node state=link
+
+- name: Create link npm bin
+  file: src=/usr/local/node-v4.4.7-linux-x64/bin/npm dest=/usr/local/bin/npm state=link

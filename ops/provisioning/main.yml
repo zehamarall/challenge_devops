@@ -12,5 +12,6 @@
 
   roles:
   #  - python
-     - nodejs 
+     - nodejs
+     - app 
 

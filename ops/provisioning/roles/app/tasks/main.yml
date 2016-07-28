@@ -1,0 +1,15 @@
+# create a directory if it doesn't exist
+- name: Create Dir of app
+  file: path=/app state=directory mode=0755
+
+- name: Move template app
+  template: src=../../../templates/app_js.j2 dest=/app/app.js owner=bin mode=0555
+
+- name: Install npm express
+  npm: name=express path=/app/
+
+- name: Add systemd conf
+  template: src=../../../templates/systemd.service.j2 dest=/etc/systemd/system/node-sample.service
+  notify:
+    - enable node-sample
+    - start node-sample 

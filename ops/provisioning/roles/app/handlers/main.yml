@@ -1,0 +1,5 @@
+- name: enable node-sample
+  shell: systemctl enable node-sample
+  
+- name: start node-sample
+  shell: systemctl start node-sample

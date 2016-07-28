@@ -1,5 +1,7 @@
 - name: enable node-sample
-  shell: systemctl enable node-sample
-  
+  shell: systemctl enable node-sample{{ item }}
+  with_sequence: start=3000 end=3005 stride=1
+
 - name: start node-sample
-  shell: systemctl start node-sample
+  shell: systemctl start node-sample{{ item }}
+  with_sequence: start=3000 end=3005 stride=1

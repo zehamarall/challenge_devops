@@ -9,7 +9,11 @@
   npm: name=express path=/app/
 
 - name: Add systemd conf
-  template: src=../../../templates/systemd.service.j2 dest=/etc/systemd/system/node-sample.service
-  notify:
-    - enable node-sample
-    - start node-sample 
+  template: src=../../../templates/systemd.service.j2 dest=/etc/systemd/system/node-sample{{ item }}.service
+  with_sequence: start=3000 end=3005 stride=1
+
+- name: Start app
+  shell: systemctl enable node-sample{{ item }}
+  shell: systemctl start node-sample{{ item }}
+  with_sequence: start=3000 end=3005 stride=1
+

@@ -1,11 +1,11 @@
 [Service]
 WorkingDirectory=/app
-ExecStart=/usr/local/bin/node app.js 
+ExecStart=/usr/local/bin/node /app/app.js {{ item }}
 ExecReload=/bin/kill -HUP $MAINPID
 Restart=always
 StandardOutput=syslog
 StandardError=syslog
-SyslogIdentifier=node_app
+SyslogIdentifier=node_app{{ item }}
 User=ubuntu
 Group=ubuntu
 Environment='NODE_ENV=production'

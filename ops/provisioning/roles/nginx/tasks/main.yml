@@ -1,0 +1,8 @@
+- name: Install nginx
+  apt: name=nginx update_cache=yes
+
+- name: Move template nginx
+  template: src=../../../templates/nginx.j2 dest=/etc/nginx/sites-available/default owner=bin mode=0666
+
+- name: Start nginx boot
+  shell: systemctl restart nginx

@@ -1,0 +1,19 @@
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        listen 443 default_server;
+        listen [::]:443 default_server;
+
+        location / {
+                proxy_pass  http://backend;
+        }
+}
+
+upstream backend  {
+  server 127.0.0.1:3000;
+  server 127.0.0.1:3001;
+  server 127.0.0.1:3002;
+  server 127.0.0.1:3003;
+  server 127.0.0.1:3004;
+}

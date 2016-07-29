@@ -1,0 +1,26 @@
+- hosts: all
+  user: ubuntu
+  become: yes
+
+  tasks:
+    - name: Create backupApp
+      file: path=/backupApp  state=directory
+
+    - name: cp app backupApp
+      shell: tar -zcvf /BackupApp.tar.gz /app
+
+    - name: Copy src app
+      template: src={{ item }} dest=/app/{{ item | basename }}
+      with_fileglob:
+        - ../src/*.js
+        - ../src/*.json
+
+    - name: Install npm express
+      npm: name=express path=/app/
+
+    - name: Start app
+      shell: systemctl restart node-sample{{ item }}
+      with_sequence: start=3000 end=3005 stride=1
+    
+
+

@@ -1,6 +1,6 @@
 - hosts: all
   user: ubuntu
-  sudo: yes
+  become: yes
   gather_facts: false
 
   pre_tasks:

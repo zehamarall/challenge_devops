@@ -13,7 +13,9 @@
   with_sequence: start=3000 end=3005 stride=1
 
 - name: Start app
-  shell: systemctl enable node-sample{{ item }}
   shell: systemctl start node-sample{{ item }}
   with_sequence: start=3000 end=3005 stride=1
 
+- name: Enable app systemctl
+  shell: systemctl enable node-sample{{ item }}
+  with_sequence: start=3000 end=3005 stride=1

@@ -35,8 +35,23 @@ Fazer um Rollback do deploy anterior da aplição utilizando Ansible:
 
 ### Step Four
 
+Testes de cargar no webapp utilizando **ab** :
+
+```ab -n 100000 -c 450 http://<ip_maquina_virtual>:80```
+
+
+### Step Five
+
 Conectar na máquina que foi criado pelo vagrant via ssh:
 
-``` cd ops ```
+```cd ops```
+```vagrant ssh```
 
-``` vagrant ssh ```
+
+### Step Six
+
+Ainda conectado na máquina via ssh retire as estatísticas do servidor web nginx. 
+
+```cat /var/log/nginx/access.log | awk '{ printf("%s\t%s\n", $9, $7)}' | sort | uniq -c | sort```
+
+

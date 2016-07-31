@@ -1,0 +1,18 @@
+- hosts: all
+  user: ubuntu
+  become: yes
+
+  tasks:
+    - name: Remove app installed
+      shell: rm -rf /app 
+
+    - name: Extract archive
+      unarchive: src=/BackupApp.tar.gz
+             dest=/
+             copy=no
+    
+    - name: Start app
+      shell: systemctl restart node-sample{{ item }}
+      with_sequence: start=3000 end=3005 stride=1
+
+    

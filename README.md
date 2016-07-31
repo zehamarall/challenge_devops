@@ -10,7 +10,7 @@ O diretórios **ops** contém as informações de criação do ambiente. Já os 
  
 ## Quick Start
 
-### Step One 
+### Step One:
 
 Entrar no diretório **ops** e criar o anbiente:
 
@@ -19,28 +19,28 @@ Entrar no diretório **ops** e criar o anbiente:
 ``` vagrant up ```
 
 
-### Step Two
+### Step Two:
 
 Fazer um deploy da aplição utilizando Ansible:
 
 ```ansible-playbook --inventory-file=$PWD/ops/.vagrant/provisioners/ansible/inventory -vv dev/deploy/main.yml```
 
 
-### Step Three
+### Step Three:
 
 Fazer um Rollback do deploy anterior da aplição utilizando Ansible:
 
 ```ansible-playbook --inventory-file=$PWD/ops/.vagrant/provisioners/ansible/inventory -vv dev/rollbackdeploy/main.yml```
 
 
-### Step Four
+### Step Four:
 
 Testes de cargar no webapp utilizando **ab** :
 
 ```ab -n 100000 -c 450 http://<ip_maquina_virtual>:80```
 
 
-### Step Five
+### Step Five:
 
 Conectar na máquina que foi criado pelo vagrant via ssh:
 
@@ -48,16 +48,19 @@ Conectar na máquina que foi criado pelo vagrant via ssh:
 ```vagrant ssh```
 
 
-### Step Six
+### Step Six:
 
 Ainda conectado na máquina via ssh retire as estatísticas do servidor web nginx. 
 
 ```cat /var/log/nginx/access.log | awk '{ printf("%s\t%s\n", $9, $7)}' | sort | uniq -c | sort```
 
 
-## Results: 
+## Results:
 
-```$ ab -n 100000 -c 450 http://10.1.1.106:80/
+Testes: 
+
+```
+$ ab -n 100000 -c 450 http://10.1.1.106:80/
 This is ApacheBench, Version 2.3 <$Revision: 1748469 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
@@ -110,4 +113,5 @@ Percentage of the requests served within a certain time (ms)
   95%   1045
   98%   1135
   99%   1552
- 100%  55660 (longest request) ```
+ 100%  55660 (longest request) 
+ ```

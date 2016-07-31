@@ -57,7 +57,7 @@ Ainda conectado na máquina via ssh retire as estatísticas do servidor web ngin
 
 ## Results: 
 
-```[leandro@localhost ~]$ ab -n 100000 -c 450 http://10.1.1.106:80/
+```$ ab -n 100000 -c 450 http://10.1.1.106:80/
 This is ApacheBench, Version 2.3 <$Revision: 1748469 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
@@ -110,5 +110,4 @@ Percentage of the requests served within a certain time (ms)
   95%   1045
   98%   1135
   99%   1552
- 100%  55660 (longest request)
-```
+ 100%  55660 (longest request) ```

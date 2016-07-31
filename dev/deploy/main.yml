@@ -3,9 +3,6 @@
   become: yes
 
   tasks:
-    - name: Create backupApp
-      file: path=/backupApp  state=directory
-
     - name: cp app backupApp
       shell: tar -zcvf /BackupApp.tar.gz /app
 

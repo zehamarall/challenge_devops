@@ -12,7 +12,7 @@ O diret√≥rios **ops** cont√©m as informa√ß√µes de cria√ß√£o do ambiente. J√° os 
 
 ### Step One 
 
-Entrar no diret√rio **ops** e criar o anbiente:
+Entrar no diret√≥rio **ops** e criar o anbiente:
 
 ``` cd ops ```
 
@@ -21,21 +21,21 @@ Entrar no diret√rio **ops** e criar o anbiente:
 
 ### Step Two
 
-Fazer um deploy da aplica√√o utilizando Ansible:
+Fazer um deploy da apli√ß√£o utilizando Ansible:
 
 ```ansible-playbook --inventory-file=$PWD/ops/.vagrant/provisioners/ansible/inventory -vv dev/deploy/main.yml```
 
 
 ### Step Three
 
-Fazer um Rollback do deploy anterior da aplica√√o utilizando Ansible:
+Fazer um Rollback do deploy anterior da apli√ß√£o utilizando Ansible:
 
 ```ansible-playbook --inventory-file=$PWD/ops/.vagrant/provisioners/ansible/inventory -vv dev/rollbackdeploy/main.yml```
 
 
 ### Step Four
 
-Conectar na m√quina que foi criado pelo vagrant via ssh:
+Conectar na m√°quina que foi criado pelo vagrant via ssh:
 
 ``` cd ops ```
 

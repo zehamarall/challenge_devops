@@ -54,6 +54,12 @@ Ainda conectado na máquina via ssh retire as estatísticas do servidor web ngin
 
 ```cat /var/log/nginx/access.log | awk '{ printf("%s\t%s\n", $9, $7)}' | sort | uniq -c | sort```
 
+```  
+2538599 200	/
+   1192 499	/
+      1 500	/
+      4 404	/favicon.ico
+```
 
 ## Results:
 
